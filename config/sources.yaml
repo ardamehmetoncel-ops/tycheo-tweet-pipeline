@@ -1,0 +1,13 @@
+# ──────────────────────────────────────────────────────────────────────────
+# Flat list of source handles. NO tags here on purpose — the auto-classifier
+# (module 4) fetches each handle's recent tweets, assigns a tier
+# (serious/middle/degen) + topic tags, and caches the result in
+# data/cache/source_classifications.json. Re-classify only on demand / new handles.
+#
+# Just maintain the handles below.
+# ──────────────────────────────────────────────────────────────────────────
+
+sources:
+  - quantedge
+  - footymarkets
+  - bigmacronews

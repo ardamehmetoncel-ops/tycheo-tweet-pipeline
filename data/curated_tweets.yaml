@@ -1,0 +1,14 @@
+# Example tweets per source handle — voice/idea inspiration only.
+# The classifier (module 4) reads these to auto-assign each handle a tier
+# (serious/middle/degen) + topic tags. Personas then draw from matching handles.
+#
+# Keep a handful per handle (quality over quantity). Handles are matched
+# case-insensitively, with or without a leading @.
+
+handles: {}
+  # examplequant:
+  #   - "Market implies 62% but my model says 71%. +9 edge. Taking yes."
+  #   - "Vol spiked, price flat. Someone knows something the book doesn't."
+  # examplefooty:
+  #   - "City for the title at 0.74 is rich. Real value's the draw-no-bet."
+  #   - "Arsenal's xG over last 6 doesn't match a 0.18 title price imo."

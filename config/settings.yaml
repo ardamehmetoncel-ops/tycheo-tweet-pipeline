@@ -1,0 +1,36 @@
+# ──────────────────────────────────────────────────────────────────────────
+# Global settings. Everything here is config-driven; secrets live in .env.
+# ──────────────────────────────────────────────────────────────────────────
+
+llm:
+  provider: ollama             # anthropic | openai | ollama  (single change swaps it)
+  model: llama3.1:8b      # configurable; sonnet is a good cost/quality default
+  candidates_per_run: 3        # N candidate posts per persona per run
+  output_language: english     # all generated posts are English
+
+tweet_source:
+  # Which inspiration-source adapter module 3 uses.
+  #   curated      -> you provide example tweets per handle in data/curated_tweets.yaml
+  #   official_x   -> official X API v2 (needs X_BEARER_TOKEN; subject to X API limits)
+  #   unofficial_x -> twitterapi.io proxy (needs TWITTERAPI_IO_KEY; violates X ToS)
+  adapter: unofficial_x
+  per_account_limit: 20        # keep fetches small to control cost / rate limits
+  cache_ttl_hours: 12          # cache fetched tweets this long before refetching
+
+# Tags whose sources feed EVERY persona (information, not voice).
+shared_tags: [general, news]
+
+classifier:
+  tiers: [serious, middle, degen]                # the spectrum tier
+  topic_tags: [quant, macro, football, news, general, crypto, politics]
+
+finbert:
+  enabled: true                                  # global on/off for the sentiment layer
+  default_on_personas: [news_reactor, contrarian, hype_man]
+
+polymarket:
+  base_url: https://gamma-api.polymarket.com     # Gamma: current odds/metadata
+  clob_base_url: https://clob.polymarket.com     # CLOB: price history (movement)
+  markets_limit: 50
+  movement_interval: 1d                          # max|all|1m|1w|1d|6h|1h
+  movement_fidelity: 60                          # minutes per data point
