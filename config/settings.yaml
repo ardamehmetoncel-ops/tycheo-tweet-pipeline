@@ -5,7 +5,7 @@
 llm:
   provider: ollama             # anthropic | openai | ollama  (single change swaps it)
   model: llama3.1:8b      # configurable; sonnet is a good cost/quality default
-  candidates_per_run: 3        # N candidate posts per persona per run
+  candidates_per_run: 1        # N candidate posts per persona per run
   output_language: english     # all generated posts are English
 
 tweet_source:
@@ -16,6 +16,7 @@ tweet_source:
   adapter: unofficial_x
   per_account_limit: 20        # keep fetches small to control cost / rate limits
   cache_ttl_hours: 12          # cache fetched tweets this long before refetching
+  request_delay_seconds: 5     # seconds to wait between handle fetches (use >0 for unofficial_x)
 
 # Tags whose sources feed EVERY persona (information, not voice).
 shared_tags: [general, news]

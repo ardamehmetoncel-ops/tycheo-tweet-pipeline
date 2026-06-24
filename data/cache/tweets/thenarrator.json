@@ -1,0 +1,142 @@
+[
+  {
+    "id": "2069791347779699073",
+    "text": "prediction market UIs try to serve the beginner and the degen with the same screen\n\nthe thing is games solved this years ago\n\nunlock the complexity as the user levels up, reveal leverage and the order book once they've shown they get the risk\n\nharder to build, but the UI grows with the trader",
+    "created_at": "Wed Jun 24 14:34:46 +0000 2026",
+    "handle": "thenarrator",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2069769522677002510",
+    "text": "RT @thenarrator: the third prediction market incumbent won't be a startup. it'll be a market making firm or a brokerage like schwab\n\na lot…",
+    "created_at": "Wed Jun 24 13:08:03 +0000 2026",
+    "handle": "thenarrator",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2069769379286282667",
+    "text": "RT @thenarrator: from conversations this week i went in believing prediction markets could work as hedging tools and came out less sure tha…",
+    "created_at": "Wed Jun 24 13:07:29 +0000 2026",
+    "handle": "thenarrator",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2069623356001816962",
+    "text": "from conversations this week i went in believing prediction markets could work as hedging tools and came out less sure than expected\n\nthe problem is simple: \n\nif your mortgage goes up by $200/month because of a rate hike, you need a hedge that pays you roughly $200 to offset it. a binary pm contract pays you everything or nothing\n\nthat's not a hedge, that's a bet that happens to be related to your problem\n\nfor pm hedging to become real, a few things need to be figured out:\n\n> payout structures that scale proportionally with the outcome instead of all or nothing\n\n> standardized contract specs where the relationship between the pm position and the real-world exposure is precise and auditable\n\n> liquidity deep enough that meaningful hedge sizes don't move the market\n\n> market designs where the instrument closely tracks the actual financial impact of the event, not just whether it happened\n\n> risk frameworks that let lenders and insurers underwrite PM-based hedges the same way they underwrite traditional derivatives\n\nnone of this exists yet and doesn't feel like anyone is close but the demand side is real because the people who need simple affordable hedging tools vastly outnumber the people who can access traditional ones today\n\nworth spending more time on (i have a long piece coming out on this soon)",
+    "created_at": "Wed Jun 24 03:27:14 +0000 2026",
+    "handle": "thenarrator",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2069526556884467761",
+    "text": "the third prediction market incumbent won't be a startup. it'll be a market making firm or a brokerage like schwab\n\na lot of these provide the liquidity that makes kalshi and polymarket work and these firms have the matching engines, risk systems, regulatory licenses, and capital \n\na brokerage or MM firm could launch a competitive PM exchange for a fraction of the cost and own most of the business by just deploying existing infrastructure into a new product category\n\nthe third seat will be taken by someone who already has every piece except the brand (for some)",
+    "created_at": "Tue Jun 23 21:02:35 +0000 2026",
+    "handle": "thenarrator",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2068898870797467767",
+    "text": "was reading an interesting passage from a blog\n\nthe point: forecasting is almost never why a market exists. good prices are a side effect of money that was already moving for some other reason. find where the trading is already subsidized, and accuracy comes for free.\n\nthe subsidy is the product, not the question",
+    "created_at": "Mon Jun 22 03:28:23 +0000 2026",
+    "handle": "thenarrator",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2068875048371307003",
+    "text": "been testing pm tools and strategies hands-on for a while and here’s what i’ve found actually works and what doesn’t (for me):\n\n> most AI tools are worthless right now (even when given context). heard there are platforms leveraging profitable models but have not connected/seen any yet\n\n> copy trading only works (barely) if you follow the right traders on the right markets (long-term markets seem to give you better chances)\n\n> aggregators/terminals help but only if you already know what you’re doing (else you get lost in the sauce of too much info) but I’m expecting some aggregators to bridge that ux gap quickly \n\n> the pseudo quant strategy threads look impressive but the results don’t match\n\nthe real edge is embarrassingly simple: \n\n> be in group chats where actual traders share thoughts on specific markets and trade topics you genuinely understand or are willing to spend time learning\n\nthe person who deeply knows fed policy has more edge than any bot scanning headlines\n\none thing i didn’t expect: traders with perp market structure experience seem to adapt to PMs naturally. almost as if the skill transfers directly.\n\ntldr: the edge if you’re new to this is not a tool, it’s context and being in rooms where real information flows",
+    "created_at": "Mon Jun 22 01:53:44 +0000 2026",
+    "handle": "thenarrator",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2068671759608381620",
+    "text": "prop funds are turning prediction market trading into a funded career\n\nskilled traders with edge but no capital can now access 5 figures+ capital and keep most of their profits\n\nit’s the same model that built a multi-billion dollar industry in forex and futures. the people proving themselves on polymarket right now are building the track record that institutional PM desks will recruit from in very soon",
+    "created_at": "Sun Jun 21 12:25:56 +0000 2026",
+    "handle": "thenarrator",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2068464369407512728",
+    "text": "I remember in 2023 jaredfromsubway was making ~$1M per day front running memecoin traders\n\nwas truly fascinating https://t.co/KL5q4ZIfrq",
+    "created_at": "Sat Jun 20 22:41:50 +0000 2026",
+    "handle": "thenarrator",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2068192482337169759",
+    "text": "RT @TheOneandOmsy: Rothera ($HOOD + SIG) JV prediction markets volumes scaling quicky. &gt;100m contracts traded in 3 of the 4 last days. $ vo…",
+    "created_at": "Sat Jun 20 04:41:27 +0000 2026",
+    "handle": "thenarrator",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2068190954364780781",
+    "text": "damn, it’s honestly unbelievable how many new prediction market projects and ideas have popped up recently\n\nmy weekend is basically booked. i need to go try all of them",
+    "created_at": "Sat Jun 20 04:35:23 +0000 2026",
+    "handle": "thenarrator",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2068177154836144159",
+    "text": "everyone talks about markets for politics, sports, and crypto but inevitably the bigger opportunity is markets for reputation\n\nfounders, investors, creators, researchers, politicians.\n\nfor the first time in history, reputation can become measurable rather than narrative",
+    "created_at": "Sat Jun 20 03:40:33 +0000 2026",
+    "handle": "thenarrator",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2068144413696471266",
+    "text": "some brain dump:\n\npm lending definitely doesn’t work at the individual market level. one side goes to zero and the lender eats the loss. i think that no model fixes that for a single binary position\n\nthe path might be portfolio-level underwriting across hundreds of uncorrelated markets where the law of large numbers smooths the binary risk\n\n+ scalar markets might help because continuous outcomes give risk models something they can actually work with",
+    "created_at": "Sat Jun 20 01:30:27 +0000 2026",
+    "handle": "thenarrator",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2067812638608777508",
+    "text": "the last 6 months in prediction markets moved faster than the previous 6 years and most people haven't noticed\n\nunderneath the headlines is where it gets interesting:\n\nwe're getting conditional markets, impact markets, continuous probability surfaces, accuracy based lending, self-funding markets, AI agents consuming probabilities as infrastructure \n\neach one is a structural rethinking of what a prediction market can be, not an incremental improvement\n\nthe binary $0 to $1 contract was the prototype and the real design space is massive and mostly untouched",
+    "created_at": "Fri Jun 19 03:32:05 +0000 2026",
+    "handle": "thenarrator",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2067704754847830404",
+    "text": "a prediction market where what you got out of a position depended on how long you held it and how right you were about the trajectory\n\nholders who entered early and stayed get a multiplier on settlement while flippers who entered and exited get a discount\n\nthe platform would reward the behavior that actually makes prediction markets useful as information aggregators, sustained conviction, rather than the behavior that extracts from them",
+    "created_at": "Thu Jun 18 20:23:24 +0000 2026",
+    "handle": "thenarrator",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2067466497962770507",
+    "text": "i got something cooking",
+    "created_at": "Thu Jun 18 04:36:39 +0000 2026",
+    "handle": "thenarrator",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2067461113952788593",
+    "text": "prediction markets are emotional products dressed up as financial ones, but the design language is still purely financial",
+    "created_at": "Thu Jun 18 04:15:15 +0000 2026",
+    "handle": "thenarrator",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2067397798522151013",
+    "text": "been circling back to the same question: why hasn't prediction market defi materialized yet (even though we're still very early) \n\nthe answer might be simpler than most think in the sense that binary outcomes go to zero overnight. you can't build lending, yield, or risk products on top of a coin flip because almost every model breaks\n\nscalar/distribution markets change this and it's been a recurrent topic in some of the conversations i've been having the past few days \n\ninstead of binary outcomes, you have a payoff that is continuous and positions that settle on a curve (not at $0 or $1)\n\nthis allows for partial loss, proportional payout, gradual degradation which is (in part) exactly what lending protocols and risk engines need to function\n\na structural change in how outcomes work that makes prediction markets compatible with defi for the first time\n\nthe first encounter i had of this was the article by Dave from paradigm. still very relevant today",
+    "created_at": "Thu Jun 18 00:03:40 +0000 2026",
+    "handle": "thenarrator",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2067274741497405832",
+    "text": "We just published a piece on the new attention economy over at Schema. From extraction to financialization, and what it means for what comes next.",
+    "created_at": "Wed Jun 17 15:54:41 +0000 2026",
+    "handle": "thenarrator",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2067268403677511896",
+    "text": "this matters more than people realize \n\nprediction markets are at a stage where the research and frameworks being written today will directly shape how regulators, institutions, and traditional businesses interact with this space for the next decade\n\nif you have any background in market structure, policy, or applied research and you care about where this space goes, this is worth paying attention to",
+    "created_at": "Wed Jun 17 15:29:30 +0000 2026",
+    "handle": "thenarrator",
+    "source": "unofficial_x"
+  }
+]

@@ -1,22 +1,28 @@
 """Module 4 — LLM source auto-classifier (cached).
 
-For each handle: take its recent tweets (module 3), ask the LLM to assign
+For each handle: read its cached tweets (written by src.ingestion.fetch_handles),
+ask the LLM to assign:
   tier  -> one of settings.classifier.tiers   (serious | middle | degen)
   tags  -> subset of settings.classifier.topic_tags (quant, macro, football, ...)
 
 Results are persisted to data/cache/source_classifications.json and reused.
 Re-classify only on demand (force=True) or for handles not yet in the cache.
+
+Run order:
+  1. python -m src.ingestion.fetch_handles   (fetch + cache tweets, no LLM)
+  2. python -m src.classify.classifier       (classify from cache, LLM only)
 """
 from __future__ import annotations
 
 import datetime as dt
 
-from src.config import CACHE_DIR
 from src import cache
+from src.config import CACHE_DIR
 from src.ingestion import tweets as tw
 from src.llm import provider as llm
 
 CLASS_CACHE = CACHE_DIR / "source_classifications.json"
+_TWEET_CACHE_DIR = CACHE_DIR / "tweets"
 
 _SYSTEM = (
     "You classify a Twitter/X account from a sample of its recent posts. "
@@ -38,6 +44,15 @@ def _prompt(handle: str, texts: list[str], tiers: list[str], topics: list[str]) 
     )
 
 
+def _load_tweet_cache(handle: str, ttl: float) -> list[str]:
+    """Read tweet texts for a handle from the tweet file cache."""
+    path = _TWEET_CACHE_DIR / f"{handle}.json"
+    data = cache.load_if_fresh(path, ttl)
+    if not data:
+        return []
+    return [t["text"] for t in data if t.get("text")]
+
+
 def classify_handle(handle: str, texts: list[str], provider, cfg: dict) -> dict:
     """Classify a single handle from its tweet texts. Returns {tier, tags}."""
     conf = cfg["settings"].get("classifier", {})
@@ -55,16 +70,17 @@ def classify_handle(handle: str, texts: list[str], provider, cfg: dict) -> dict:
         return {"tier": "middle", "tags": [], "note": "parse_failed"}
 
     tier = parsed.get("tier")
-    tier = tier if tier in tiers else "middle"                  # clamp to vocabulary
-    tags = [t for t in (parsed.get("tags") or []) if t in topics]   # drop unknown tags
+    tier = tier if tier in tiers else "middle"
+    tags = [t for t in (parsed.get("tags") or []) if t in topics]
     return {"tier": tier, "tags": tags}
 
 
 def get_classifications(cfg: dict, *, force: bool = False,
                         only: list[str] | None = None) -> dict[str, dict]:
-    """Load cache; classify missing (or forced) handles; persist; return all.
+    """Classify handles from tweet cache. Makes no tweet-fetch network calls.
 
-    force -> re-classify everything.  only -> restrict to these handles.
+    Handles with no tweet cache are skipped with a warning — run
+    src.ingestion.fetch_handles first to populate the cache.
     """
     existing: dict[str, dict] = cache.load_if_fresh(CLASS_CACHE, ttl_seconds=float("inf")) \
         if CLASS_CACHE.exists() else {}
@@ -74,15 +90,26 @@ def get_classifications(cfg: dict, *, force: bool = False,
     todo = handles if force else [h for h in handles if h not in existing]
 
     if todo:
-        provider = llm.get_provider(cfg)
-        fetched = tw.fetch_for_handles(cfg, handles=todo)
-        now = dt.datetime.now(dt.timezone.utc).isoformat()
-        for h in todo:
-            texts = [t["text"] for t in fetched.get(h, [])]
-            result = classify_handle(h, texts, provider, cfg)
-            result["classified_at"] = now
-            existing[h] = result
-        cache.save(CLASS_CACHE, existing)
+        ts = cfg["settings"].get("tweet_source", {})
+        ttl = ts.get("cache_ttl_hours", 24) * 3600
+
+        ready = [h for h in todo if _load_tweet_cache(h, ttl)]
+        missing = [h for h in todo if not _load_tweet_cache(h, ttl)]
+
+        if missing:
+            print(f"[classifier] no tweet cache for: {', '.join(missing)}")
+            print("[classifier] run src.ingestion.fetch_handles to fetch them first")
+
+        if ready:
+            provider = llm.get_provider(cfg)
+            now = dt.datetime.now(dt.timezone.utc).isoformat()
+            for h in ready:
+                texts = _load_tweet_cache(h, ttl)
+                result = classify_handle(h, texts, provider, cfg)
+                result["classified_at"] = now
+                existing[h] = result
+                print(f"[classifier] {h:20s} tier={result['tier']:8s} tags={result['tags']}")
+            cache.save(CLASS_CACHE, existing)
 
     return {h: existing[h] for h in handles if h in existing}
 
@@ -90,5 +117,8 @@ def get_classifications(cfg: dict, *, force: bool = False,
 if __name__ == "__main__":
     from src.config import load_config
     cfg = load_config()
-    for handle, c in get_classifications(cfg).items():
-        print(f"{handle:20s} tier={c['tier']:8s} tags={c['tags']}")
+    results = get_classifications(cfg)
+    if results:
+        print(f"\n[classifier] {len(results)} handle(s) classified:")
+        for handle, c in results.items():
+            print(f"  {handle:20s} tier={c['tier']:8s} tags={c['tags']}")

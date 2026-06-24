@@ -89,7 +89,7 @@ def get_provider(cfg: dict):
 
 # -- N-candidate generation (works with any provider) -----------------------
 def generate(provider, system: str, user: str, n: int, *,
-             max_tokens: int = 1200, temperature: float = 0.9) -> list[str]:
+             max_tokens: int = 400, temperature: float = 0.9) -> list[str]:
     """Ask for n distinct posts in one call; fall back to n separate completions."""
     instruction = (
         f"{user}\n\nProduce exactly {n} DISTINCT candidate posts. "

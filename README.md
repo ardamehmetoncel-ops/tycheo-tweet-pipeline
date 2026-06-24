@@ -48,8 +48,9 @@ tweet-engine/
     ├── cache.py                    # tiny JSON file cache with TTL
     ├── ingestion/
     │   ├── polymarket.py           # Gamma odds + CLOB price movement + snapshot diff
-    │   └── tweets.py               # TweetSource: curated + official_x + unofficial_x
-    ├── classify/classifier.py      # LLM auto-classifier (tier + topic tags, cached)
+    │   ├── tweets.py               # TweetSource: curated + official_x + unofficial_x
+    │   └── fetch_handles.py        # step 1: fetch + cache tweets for all source handles
+    ├── classify/classifier.py      # step 2: LLM auto-classifier (reads tweet cache, no network)
     ├── routing.py                  # tag-based source → persona routing (voice / info split)
     ├── llm/provider.py             # anthropic / openai / ollama + N-candidate generation
     ├── generate.py                 # per-persona generation orchestration
@@ -285,12 +286,38 @@ changes are needed for Polymarket (it's a public API).
 
 ---
 
-### Step 7 — Classify your sources
+### Step 7 — Fetch tweets and classify your sources
 
-The classifier fetches tweets for each handle and runs one LLM call per handle
-to assign it a tier (`serious / middle / degen`) and topic tags. Results are
-cached in `data/cache/source_classifications.json` and reused on every
-subsequent run until you delete the cache or add new handles:
+This is a two-step process. The fetch and classify steps are intentionally split
+so that rate limits or API credit issues during fetching don't block the LLM
+classification step.
+
+**Step 7a — Fetch tweets (network only, no LLM)**
+
+Downloads and caches recent tweets for every handle in `sources.yaml`. Safe to
+re-run — handles already in cache are skipped automatically:
+
+```bash
+python -m src.ingestion.fetch_handles
+```
+
+Expected output:
+```
+[fetch] fetching 13 handle(s)...
+[fetch] fetched (12): danielbkck, polymarket, kalshi, ...
+[fetch] failed  (1):  somehandle
+[fetch] re-run to retry failed handles
+```
+
+If any handles fail (rate limit, network error), run it again. Already-fetched
+handles are skipped and the failed ones are retried. Repeat until all show as
+"already cached".
+
+**Step 7b — Classify from cache (LLM only, no network)**
+
+Reads the cached tweets and runs one LLM call per unclassified handle to assign
+a tier (`serious / middle / degen`) and topic tags. Results are saved to
+`data/cache/source_classifications.json`:
 
 ```bash
 python -m src.classify.classifier
@@ -298,15 +325,27 @@ python -m src.classify.classifier
 
 Expected output:
 ```
-[classifier] somehandle -> tier=serious tags=[quant]
-[classifier] anotherhandle -> tier=degen tags=[news, general]
+[classifier] danielbkck          tier=degen     tags=['crypto', 'news']
+[classifier] polymarket          tier=serious   tags=['general', 'news']
 ...
+[classifier] 13 handle(s) classified
 ```
 
-If you add new handles to `sources.yaml` later, re-run this command. Only new
-handles get a fresh LLM call — already-classified handles are read from cache.
+If any handles have no tweet cache yet (missed in step 7a), the classifier
+prints a warning and skips them — run step 7a again to fetch those first.
 
-To force a full reclassification:
+**Adding new handles later:**
+
+```bash
+# 1. add handle to config/sources.yaml
+# 2. fetch its tweets
+python -m src.ingestion.fetch_handles
+# 3. classify it (already-classified handles are skipped)
+python -m src.classify.classifier
+```
+
+**Force a full reclassification:**
+
 ```bash
 rm data/cache/source_classifications.json
 python -m src.classify.classifier

@@ -63,10 +63,11 @@ tweet_source:
   cache_ttl_hours: 24
 ```
 
-**4. Classify and run**
+**4. Fetch tweets, classify, and run**
 
 ```bash
-python -m src.classify.classifier   # caches results in data/cache/source_classifications.json
+python -m src.ingestion.fetch_handles   # no-op for curated (local file, no network)
+python -m src.classify.classifier       # LLM classifies from tweet cache
 python run.py
 ```
 
@@ -135,10 +136,11 @@ sources:
 No entries needed in `curated_tweets.yaml` — the adapter fetches live tweets.
 Retweets and replies are automatically excluded.
 
-**7. Classify and run**
+**7. Fetch tweets, classify, and run**
 
 ```bash
-python -m src.classify.classifier
+python -m src.ingestion.fetch_handles   # fetch + cache tweets (re-run if rate-limited)
+python -m src.classify.classifier       # LLM classifies from tweet cache
 python run.py
 ```
 
@@ -194,10 +196,11 @@ sources:
   - bigmacronews
 ```
 
-**5. Classify and run**
+**5. Fetch tweets, classify, and run**
 
 ```bash
-python -m src.classify.classifier
+python -m src.ingestion.fetch_handles   # fetch + cache tweets (re-run if rate-limited)
+python -m src.classify.classifier       # LLM classifies from tweet cache
 python run.py
 ```
 
@@ -234,6 +237,7 @@ adapter switches. You only need to re-run it if:
 
 ```bash
 rm data/cache/source_classifications.json
+python -m src.ingestion.fetch_handles   # tweets are already cached; skips network
 python -m src.classify.classifier
 ```
 

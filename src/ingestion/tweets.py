@@ -12,6 +12,7 @@ Tweet dict shape: {"id", "text", "created_at", "handle", "source"}
 from __future__ import annotations
 
 import hashlib
+import time
 from pathlib import Path
 from typing import Protocol
 
@@ -115,7 +116,7 @@ class UnofficialXSource:
             timeout=30,
         )
         r.raise_for_status()
-        tweets = r.json().get("tweets", [])[:limit]
+        tweets = r.json().get("data", {}).get("tweets", [])[:limit]
         out = []
         for t in tweets:
             text = t.get("text") or t.get("full_text", "")
@@ -172,12 +173,15 @@ def fetch_for_handles(cfg: dict,
     """Fetch up to per_account_limit tweets for each handle. Used by the classifier."""
     ts = cfg["settings"].get("tweet_source", {})
     limit = ts.get("per_account_limit", 15)
+    delay = ts.get("request_delay_seconds", 0)
     src = get_source(cfg)
     handles = handles if handles is not None else cfg["sources"]
     out: dict[str, list[dict]] = {}
-    for h in handles:
+    for i, h in enumerate(handles):
         if not h:
             continue
+        if delay and i > 0:
+            time.sleep(delay)
         try:
             out[_norm(h)] = src.fetch(h, limit)
         except Exception as e:        # one bad handle shouldn't kill the whole batch
