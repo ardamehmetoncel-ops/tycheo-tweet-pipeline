@@ -1,22 +1,92 @@
 [
   {
+    "id": "2071242062389735507",
+    "text": "traditional insurance & hedging is a $8T-$10T+ institutional dinosaur gatekept by suit-wearing middlemen \n\nprediction markets are the future of hedging, but right now they’re just a fractional drop in the bucket \n\nthe edge? \n\nzero slow claims, pure binary contracts, and 6% costs vs 13% traditional over-the-counter fees\n\nstill low liquidity, but the retail to institutional pipeline is loading \n\nshort the old guard, long polymarket & kalshi and upcoming infra on prediction markets",
+    "created_at": "Sun Jun 28 14:39:24 +0000 2026",
+    "handle": "thenarrator",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2071070532062122392",
+    "text": "reality doesn’t have outcomes until they happen, only distributions of possibility\n\na continuous prediction market is the closest financial instrument to how the universe actually works before a result collapses into fact",
+    "created_at": "Sun Jun 28 03:17:48 +0000 2026",
+    "handle": "thenarrator",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2070927792334897635",
+    "text": "the keynesian beauty contest from 1936 is still the most useful mental model for understanding prediction markets\n\nkeynes described a newspaper game where you don't win by picking the prettiest face. you win by picking the face you think everyone else will pick. the best players go deeper, picking the face they think everyone else thinks everyone else will pick\n\n1/ first level is trading what you believe will happen \n2/ second level is trading what you think the crowd will believe\n3/ third level and beyond is where the sharks live, trading what the crowd thinks the crowd will think and front-running sentiment before the wave forms\n\nthis is why prediction markets aren't simply truth machines and the price isn't a pure probability. \n\nit's a reflexive aggregation of what everyone thinks everyone thinks the probability is, but this doesn't apply to every market equally (it lives on a spectrum) \n\n\"will it rain tomorrow\" has almost no beauty contest dynamic because the weather doesn't care what the market thinks. here reflexivity has nowhere to enter so the price converges toward genuine probability \n\n\"who wins a close election?\" is the opposite, the odds get cited everywhere so the price gets contaminated by what people think the price means\n\nthe uncomfortable part is we can't cleanly separate genuine belief from reflexive positioning in real time. we can measure calibration after resolution but by then the composition that produced the price is gone\n\ndecomposing a prediction market price into real belief versus reflexive noise versus manipulation might be one of the most valuable unsolved problems in the space (if it's even a problem?) \n\na big part of the thesis of prediction markets as truth machines depends on the answer and nobody has cracked it yet",
+    "created_at": "Sat Jun 27 17:50:36 +0000 2026",
+    "handle": "thenarrator",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2070742335193784604",
+    "text": "the persistent rotation from nonproductive to productive crypto is the only trend that actually matters this cycle. \n\nprediction markets sit on the productive side and most people haven’t repriced that yet",
+    "created_at": "Sat Jun 27 05:33:39 +0000 2026",
+    "handle": "thenarrator",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2070626100586201155",
+    "text": "the reflexivity problem nobody wants to discuss is that once a prediction market gets famous enough to be cited, it stops being a mirror and becomes an actor \n\nthe odds influence the outcome they're trying to measure and polymarket's election odds moved sentiment which moved votes \n\nmeasurement changed the measured",
+    "created_at": "Fri Jun 26 21:51:47 +0000 2026",
+    "handle": "thenarrator",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2070379716922482870",
+    "text": "RT @thenarrator: https://t.co/HDhYYxxZUk",
+    "created_at": "Fri Jun 26 05:32:44 +0000 2026",
+    "handle": "thenarrator",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2070351500786741297",
+    "text": "i've spent the last year thinking and writing about prediction markets almost every day\n\ntalking to founders, connecting builders and sharing ideas that range from practical to probably delusional. most of it public, some of it in group chats and calls that nobody sees\n\nthe thing that keeps me going is a genuine belief that this primitive is underbuilt relative to its potential. prediction markets can reshape how the world prices uncertainty, allocates capital, and holds people accountable \n\nright now they're still treated as a betting vertical and that gap between what they are and what they could be is what drives me (and a lot of ppl)\n\nthe builders who are heads down right now on new mechanics, new primitives, and new products deserve more visibility and support than they're getting (we got some true all stars)\n\nprediction markets deserve to be more than a sidebar during election season or sports games",
+    "created_at": "Fri Jun 26 03:40:37 +0000 2026",
+    "handle": "thenarrator",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2070248657358561630",
+    "text": "the world cup will probably be one of the biggest events prediction markets have ever seen\n\nkalshi showed what bracket challenges can do with their $1B march madness offer and now every platform is gearing up\n\none team worth watching is @gomarket: building for the global audience that most PM platforms aren't serving yet \n\nthey're running a free knockout bracket challenge with a tesla on the line, no deposit just make your picks\n\npre-registration: https://t.co/jXXxIaksJN",
+    "created_at": "Thu Jun 25 20:51:57 +0000 2026",
+    "handle": "thenarrator",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2070167571299528733",
+    "text": "https://t.co/HDhYYxxZUk",
+    "created_at": "Thu Jun 25 15:29:45 +0000 2026",
+    "handle": "thenarrator",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2070151320309211403",
+    "text": "a very degen application of prediction markets: earn yield for the duration that you are right but lose it until you aren't",
+    "created_at": "Thu Jun 25 14:25:10 +0000 2026",
+    "handle": "thenarrator",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2069982252876894419",
+    "text": "every analyst, politician, and news outlet is making predictions all day long but nobody keeps score. they just move on to the next take and hope you forgot the last one\n\nsomeone should build a protocol that maps public claims against resolved prediction market outcomes and gives every public voice an accuracy \n\nthe data from resolved markets already exists. nobody is using it to hold people accountable yet \n\nthat feels like a big miss",
+    "created_at": "Thu Jun 25 03:13:22 +0000 2026",
+    "handle": "thenarrator",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2069920586835357712",
+    "text": "i'm very optimistic about the future of prediction markets and onchain finance",
+    "created_at": "Wed Jun 24 23:08:19 +0000 2026",
+    "handle": "thenarrator",
+    "source": "unofficial_x"
+  },
+  {
     "id": "2069791347779699073",
     "text": "prediction market UIs try to serve the beginner and the degen with the same screen\n\nthe thing is games solved this years ago\n\nunlock the complexity as the user levels up, reveal leverage and the order book once they've shown they get the risk\n\nharder to build, but the UI grows with the trader",
     "created_at": "Wed Jun 24 14:34:46 +0000 2026",
-    "handle": "thenarrator",
-    "source": "unofficial_x"
-  },
-  {
-    "id": "2069769522677002510",
-    "text": "RT @thenarrator: the third prediction market incumbent won't be a startup. it'll be a market making firm or a brokerage like schwab\n\na lot…",
-    "created_at": "Wed Jun 24 13:08:03 +0000 2026",
-    "handle": "thenarrator",
-    "source": "unofficial_x"
-  },
-  {
-    "id": "2069769379286282667",
-    "text": "RT @thenarrator: from conversations this week i went in believing prediction markets could work as hedging tools and came out less sure tha…",
-    "created_at": "Wed Jun 24 13:07:29 +0000 2026",
     "handle": "thenarrator",
     "source": "unofficial_x"
   },
@@ -63,79 +133,9 @@
     "source": "unofficial_x"
   },
   {
-    "id": "2068192482337169759",
-    "text": "RT @TheOneandOmsy: Rothera ($HOOD + SIG) JV prediction markets volumes scaling quicky. &gt;100m contracts traded in 3 of the 4 last days. $ vo…",
-    "created_at": "Sat Jun 20 04:41:27 +0000 2026",
-    "handle": "thenarrator",
-    "source": "unofficial_x"
-  },
-  {
     "id": "2068190954364780781",
     "text": "damn, it’s honestly unbelievable how many new prediction market projects and ideas have popped up recently\n\nmy weekend is basically booked. i need to go try all of them",
     "created_at": "Sat Jun 20 04:35:23 +0000 2026",
-    "handle": "thenarrator",
-    "source": "unofficial_x"
-  },
-  {
-    "id": "2068177154836144159",
-    "text": "everyone talks about markets for politics, sports, and crypto but inevitably the bigger opportunity is markets for reputation\n\nfounders, investors, creators, researchers, politicians.\n\nfor the first time in history, reputation can become measurable rather than narrative",
-    "created_at": "Sat Jun 20 03:40:33 +0000 2026",
-    "handle": "thenarrator",
-    "source": "unofficial_x"
-  },
-  {
-    "id": "2068144413696471266",
-    "text": "some brain dump:\n\npm lending definitely doesn’t work at the individual market level. one side goes to zero and the lender eats the loss. i think that no model fixes that for a single binary position\n\nthe path might be portfolio-level underwriting across hundreds of uncorrelated markets where the law of large numbers smooths the binary risk\n\n+ scalar markets might help because continuous outcomes give risk models something they can actually work with",
-    "created_at": "Sat Jun 20 01:30:27 +0000 2026",
-    "handle": "thenarrator",
-    "source": "unofficial_x"
-  },
-  {
-    "id": "2067812638608777508",
-    "text": "the last 6 months in prediction markets moved faster than the previous 6 years and most people haven't noticed\n\nunderneath the headlines is where it gets interesting:\n\nwe're getting conditional markets, impact markets, continuous probability surfaces, accuracy based lending, self-funding markets, AI agents consuming probabilities as infrastructure \n\neach one is a structural rethinking of what a prediction market can be, not an incremental improvement\n\nthe binary $0 to $1 contract was the prototype and the real design space is massive and mostly untouched",
-    "created_at": "Fri Jun 19 03:32:05 +0000 2026",
-    "handle": "thenarrator",
-    "source": "unofficial_x"
-  },
-  {
-    "id": "2067704754847830404",
-    "text": "a prediction market where what you got out of a position depended on how long you held it and how right you were about the trajectory\n\nholders who entered early and stayed get a multiplier on settlement while flippers who entered and exited get a discount\n\nthe platform would reward the behavior that actually makes prediction markets useful as information aggregators, sustained conviction, rather than the behavior that extracts from them",
-    "created_at": "Thu Jun 18 20:23:24 +0000 2026",
-    "handle": "thenarrator",
-    "source": "unofficial_x"
-  },
-  {
-    "id": "2067466497962770507",
-    "text": "i got something cooking",
-    "created_at": "Thu Jun 18 04:36:39 +0000 2026",
-    "handle": "thenarrator",
-    "source": "unofficial_x"
-  },
-  {
-    "id": "2067461113952788593",
-    "text": "prediction markets are emotional products dressed up as financial ones, but the design language is still purely financial",
-    "created_at": "Thu Jun 18 04:15:15 +0000 2026",
-    "handle": "thenarrator",
-    "source": "unofficial_x"
-  },
-  {
-    "id": "2067397798522151013",
-    "text": "been circling back to the same question: why hasn't prediction market defi materialized yet (even though we're still very early) \n\nthe answer might be simpler than most think in the sense that binary outcomes go to zero overnight. you can't build lending, yield, or risk products on top of a coin flip because almost every model breaks\n\nscalar/distribution markets change this and it's been a recurrent topic in some of the conversations i've been having the past few days \n\ninstead of binary outcomes, you have a payoff that is continuous and positions that settle on a curve (not at $0 or $1)\n\nthis allows for partial loss, proportional payout, gradual degradation which is (in part) exactly what lending protocols and risk engines need to function\n\na structural change in how outcomes work that makes prediction markets compatible with defi for the first time\n\nthe first encounter i had of this was the article by Dave from paradigm. still very relevant today",
-    "created_at": "Thu Jun 18 00:03:40 +0000 2026",
-    "handle": "thenarrator",
-    "source": "unofficial_x"
-  },
-  {
-    "id": "2067274741497405832",
-    "text": "We just published a piece on the new attention economy over at Schema. From extraction to financialization, and what it means for what comes next.",
-    "created_at": "Wed Jun 17 15:54:41 +0000 2026",
-    "handle": "thenarrator",
-    "source": "unofficial_x"
-  },
-  {
-    "id": "2067268403677511896",
-    "text": "this matters more than people realize \n\nprediction markets are at a stage where the research and frameworks being written today will directly shape how regulators, institutions, and traditional businesses interact with this space for the next decade\n\nif you have any background in market structure, policy, or applied research and you care about where this space goes, this is worth paying attention to",
-    "created_at": "Wed Jun 17 15:29:30 +0000 2026",
     "handle": "thenarrator",
     "source": "unofficial_x"
   }

@@ -1,0 +1,142 @@
+[
+  {
+    "id": "2069065938289516707",
+    "text": "Polymarket updated its FAQ today. They clarified that they don't “disclose details about potential future rewards or eligibility criteria”\n\nAnyone on Twitter telling you to do X for the airdrop is wrong! The best thing to do is just make money trading. THE AIRDROP WILL COME LATER",
+    "created_at": "Mon Jun 22 14:32:15 +0000 2026",
+    "handle": "jesterthegoose",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2067355270951620895",
+    "text": "I feel like this image should settle the Polymarket vs sportsbook debate.\n\nNo idea why anyone would ever place a trade on a sportsbook anymore. https://t.co/ofElwb08qd",
+    "created_at": "Wed Jun 17 21:14:40 +0000 2026",
+    "handle": "jesterthegoose",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2066840488477663427",
+    "text": "I just went on a whole journey to figure out what this was. I checked the transaction on-chain, and the fee was not paid because of Polymarket, it was paid because of a builder code that @polymarket_O3O was using, which charged 0.1% fees ($5!).\n\nI couldn't find any reference to the builder code online, but I tracked down all the trades that used that code. The code had made ~300 dollars over about 2 months. O3O had been using it for weeks, but not on every trade. When I reached out to O3O, they claimed they didn't use any terminals. When I sent them the list of the accounts that had used the code, they also said that another account that belonged to them was in the list.\n\nI then reached out to any other traders using the code whose Twitter accounts were linked. One person responded, @GutsPoly said that they had traded directly on the Polymarket website for the trades where the chain showed they were using the code on.\n\nI then directly asked O3O if they had any Polymarket-related extensions installed...\n\nTurns out it's @securezer0's Chrome Extension, when I looked through the extension's code, I found that it was injecting its builder code. It did not appear to do anything suspicious. The fact that it charged 0.1% fees was not disclosed in the Chrome extension description.\n\nI reached out directly to SecureZero, and they said they did add their builder code, but they refunded all of them. When I mentioned that it was not disclosed in the extension text, they were surprised and said that Chrome \"rejected our extension upgrade where that was added\" (to the description of the Chrome extension) and that they \"did not mean to mislead\".\n\nFor the record, I believe them; it was 300 dollars total in fees, there is no reason to do something over that much (and it was only 0.1%). They have since taken down the extension (or at least I can't access it at the URL anymore).\n\nI mostly wanted to share this as both a warning (to be very careful what Chrome extensions you install). And because it was an interesting experience trying to find out what was causing this. I obviously do not think Chrome extensions should be charging fees without disclosing them (AND YOU SHOULD HAVE BEEN ABLE TO OPT-OUT OF THIS). But I do not think this was meant to be inherently malicious.",
+    "created_at": "Tue Jun 16 11:09:07 +0000 2026",
+    "handle": "jesterthegoose",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2065901580755554443",
+    "text": "https://t.co/XurRKpGyk8",
+    "created_at": "Sat Jun 13 20:58:14 +0000 2026",
+    "handle": "jesterthegoose",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2059384497536372931",
+    "text": "Trump on Prediction Markets just now:\n\nBullish! https://t.co/drdvAocW8y",
+    "created_at": "Tue May 26 21:21:40 +0000 2026",
+    "handle": "jesterthegoose",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2059329403788873826",
+    "text": "Didn't think I'd ever see myself in the NYTimes....\n\n\"@JesterTheGoose, a college student studying computer science, deployed an open-source machine-learning tool to predict the outcome of the Chess  World Championships. He has turned $2 into more than $150,000.\"\n\nThat was my very first big winner. Went from like 20 -> 600 dollars because of it. Crazy memories...",
+    "created_at": "Tue May 26 17:42:45 +0000 2026",
+    "handle": "jesterthegoose",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2057831505335144749",
+    "text": "This is only for the p99 (worst 1%). At least according to my own stats (but cool, and very good regardless).\n\nAlso, this is a sneak peek of my latest project👀 https://t.co/76JaQAlo9X",
+    "created_at": "Fri May 22 14:30:38 +0000 2026",
+    "handle": "jesterthegoose",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2057246177754767754",
+    "text": "But sportsbooks are :)",
+    "created_at": "Wed May 20 23:44:45 +0000 2026",
+    "handle": "jesterthegoose",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2055745729201664246",
+    "text": "@Domahhhh what movie is Polymarket now. We need an updated list https://t.co/xfB7rMh8b9",
+    "created_at": "Sat May 16 20:22:30 +0000 2026",
+    "handle": "jesterthegoose",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2055028205019635795",
+    "text": "One of the few third-party Polymarket sites I actually use is Predict Parity.\n\nThere are tens of thousands of markets on Polymarket, and billions of dollars traded per day; finding the markets that actually matter to me is hard. Predict Parity is my tool to do that.\n\nThe Live Trades tab is especially good. The filter has a level of detail I haven’t seen anywhere else.  Here is a filter I use:\n- Taker only (makers getting filled is less interesting than someone immediately taking)\n- 100k > PnL\n- Trade Size >1k\n\nThis shows whales with high conviction acting fast, and is a signal for which markets I should be paying attention to at that moment.",
+    "created_at": "Thu May 14 20:51:19 +0000 2026",
+    "handle": "jesterthegoose",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2054846799589019875",
+    "text": "Polymarket's Kaito mindshare is at 100%\n\nAirdrop Confirmed\n\n$POLY https://t.co/vn3cfSYXGA",
+    "created_at": "Thu May 14 08:50:28 +0000 2026",
+    "handle": "jesterthegoose",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2054637283421331574",
+    "text": "Wait, it's real? I thought this whole \"airdrop\" thing was a bit. It's actually happening???!",
+    "created_at": "Wed May 13 18:57:56 +0000 2026",
+    "handle": "jesterthegoose",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2053124326488969723",
+    "text": "This is just fully false. Rules are embedded on chain with UMA, Polymarket can issue “clarifications”\nto their rules, which are also on chain.\n\nCrazy to be trying to build a competitor to Polymarket and not understand basic facts…",
+    "created_at": "Sat May 09 14:45:59 +0000 2026",
+    "handle": "jesterthegoose",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2052441514366632054",
+    "text": "Great post. Another example of this was the fake tariff announcement tweeted by the Walter Bloomberg. Everyone blamed him, but any idiot could see the market was moving minutes before he tweeted.\n\nI think it was actually from a bad headline from the actual Bloomberg terminal. https://t.co/Rzd3vDMp80",
+    "created_at": "Thu May 07 17:32:44 +0000 2026",
+    "handle": "jesterthegoose",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2051314136471240740",
+    "text": "I'M SORRY IT WAS AT 30%??? Glad it's fixed, but Christ.",
+    "created_at": "Mon May 04 14:52:56 +0000 2026",
+    "handle": "jesterthegoose",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2050309276544250271",
+    "text": "How is it that Polymarket is down for over half an hour, but the only communication about it is in private Telegram groups (no banner on the site, no announcement in Discord, nothing)? When we say we need more communication, we are talking about this stuff.\n\n@devjoshstevens https://t.co/heleSQrTyr",
+    "created_at": "Fri May 01 20:19:59 +0000 2026",
+    "handle": "jesterthegoose",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2049998747812384881",
+    "text": "If you have any money in cash, put it in this market now\nhttps://t.co/kygM7Gucud\n\nIt resolves in 15 minutes, and there are 7 million yes shares at 99.9.\n\n1,680,000,000,000,000% APY. \n\nOnly on Polymarket. https://t.co/MkrcpyAwBr",
+    "created_at": "Thu Apr 30 23:46:03 +0000 2026",
+    "handle": "jesterthegoose",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2049251000062742589",
+    "text": "While I agree with not poking beasts, I think in this case, to anyone familiar with Polymarket, the data is laughable. Genuinely, I could replicate what was made here in less than an hour.",
+    "created_at": "Tue Apr 28 22:14:46 +0000 2026",
+    "handle": "jesterthegoose",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2047841274372182337",
+    "text": "You love to see it. I’ve been wanting to hear this for so long. Yes we’ve got issues, here’s how we are going to fix them.\n\nWe’ve heard something similar to this before about more communication. So it remains to be seen if they follow through. But if they do? I’m excited.\n\n🐐",
+    "created_at": "Sat Apr 25 00:53:01 +0000 2026",
+    "handle": "jesterthegoose",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2047045720092676543",
+    "text": "Worth a read. I want to see Polymarket succeed, but I'm sometimes disappointed, especially with the frequency of team communication.\n\nI love @kea1on (and @chrund1e), and how active they are in the community!!! Please keep them more informed (and let them speak), especially during incidents!",
+    "created_at": "Wed Apr 22 20:11:46 +0000 2026",
+    "handle": "jesterthegoose",
+    "source": "unofficial_x"
+  }
+]

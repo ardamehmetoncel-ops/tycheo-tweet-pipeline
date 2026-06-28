@@ -1,5 +1,26 @@
 [
   {
+    "id": "2070919480209768868",
+    "text": "RT @PolymarketDevs: Friday Update - Weeks of 15th June + 22nd June, 2026:\n\n-Combos launched: beta live 6/11, pre-built combos + multi-sport…",
+    "created_at": "Sat Jun 27 17:17:34 +0000 2026",
+    "handle": "devjoshstevens",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2070586507803398370",
+    "text": "RT @balintorosz: Some personal news - Polymarket has acquired Craft Agents, and part of the Craft team is joining Polymarket.\nI'll be leadi…",
+    "created_at": "Fri Jun 26 19:14:27 +0000 2026",
+    "handle": "devjoshstevens",
+    "source": "unofficial_x"
+  },
+  {
+    "id": "2069973155020468274",
+    "text": "RT @primo_data: Polymarket (DeFi) pUSD surpassed $500m https://t.co/iWXV7NePkw",
+    "created_at": "Thu Jun 25 02:37:13 +0000 2026",
+    "handle": "devjoshstevens",
+    "source": "unofficial_x"
+  },
+  {
     "id": "2068052543347794252",
     "text": "Allowing more people to try out perps again, with one ask: give us feedback on everything you did not like/think could be better about the UI. DM your Polymarket username/address, and we will get you added. (Going through all the other DMs soon)",
     "created_at": "Fri Jun 19 19:25:23 +0000 2026",
@@ -10,13 +31,6 @@
     "id": "2067953979695243564",
     "text": "If you want to build perps for both retail and pro users, we’re hiring experienced perps backend engineers at Polymarket. If you’re interested, DM me what you worked on before. Rust experience ideal.",
     "created_at": "Fri Jun 19 12:53:44 +0000 2026",
-    "handle": "devjoshstevens",
-    "source": "unofficial_x"
-  },
-  {
-    "id": "2067092649538957704",
-    "text": "RT @shayne_coplan: Today is the 6 year anniversary of when I launched Polymarket. \n\nI’m truly grateful to be able to work on something that…",
-    "created_at": "Wed Jun 17 03:51:07 +0000 2026",
     "handle": "devjoshstevens",
     "source": "unofficial_x"
   },
@@ -122,20 +136,6 @@
     "id": "2049107824278483003",
     "text": "100M supply of pUSD already 🔥 \nLiquidity already at 226M 🔥",
     "created_at": "Tue Apr 28 12:45:50 +0000 2026",
-    "handle": "devjoshstevens",
-    "source": "unofficial_x"
-  },
-  {
-    "id": "2048445800309485741",
-    "text": "We want to kill as many bugs on the @Polymarket UI as possible next week.. below report your issue with as much detail as possible and we will get it properly in the backlog and @louispolymarket and web team will get them fixed for you. Thanks in advance 💪",
-    "created_at": "Sun Apr 26 16:55:11 +0000 2026",
-    "handle": "devjoshstevens",
-    "source": "unofficial_x"
-  },
-  {
-    "id": "2047756905209094613",
-    "text": "This is my 3rd week as VP of Engineering DeFi at @Polymarket , and I'm going to be straight: the traction @Polymarket has seen has massively outpaced our infrastructure, and we haven't done nearly enough to scale to keep up. I hear you, and fixing this is our entire focus. We're a major company now, and we need to engineer like one. Here's exactly what we're doing:\n\n- Onchain data latency. We're working on making this near-instant so the experience is incredible.\n- Chain migration. We need more block space, cheaper gas and much smaller block times so settlement is instant.\n- Transactions are getting cancelled. We understand this is one of the most frustrating issues right now, and we have a complete fix coming very soon.\n- Massive focus on the website to make it faster, more responsive, and with better UX.\n- We added observability everywhere. Proper alerting so we catch issues ourselves, market makers should not be the ones telling us something is down. That's been unacceptable, and we know it.\n- E2e tests throughout, starting with the CLOB, so issues get caught in CI before anything ships.\n- CLOBv2 is not a rewrite. It won't improve performance or stability on its own; it's an upgrade that unlocks us to move fast right after. We'll do better with communication next time.\n- We are rebuilding the CLOB from the ground up. Most important thing we're doing. Without it, we can't be the best DeFi exchange in the world. We know it, we're on it, it's mission critical.\n- Unified TypeScript SDK for all APIs, which is shipping soon.\n- Unified API. One WS connection for everything, with a schema that's actually readable.\n- New Polymarket contract in the works that unlocks things that are simply impossible on the current protocol.\n- New hires: Head of QA Automation, Head of Dev Tooling, Head of Internal Tooling, Head of Data Engineering.\n- Smaller, dedicated teams. Fewer focus points per person, clearer ownership. People do what they're good at and are accountable for it.\n- Working closely with customer support to give them real debugging tools so any user issue gets properly diagnosed, not lost.\n- Proper communication with marketing and market makers so everyone knows what's coming and when, and MM can submit feature requests with a clear path to get them into engineering and shipped.\n- Working with 4 security teams daily to ensure we're super secure and that funds are always safe.\n- Perps incoming. Brand new contracts and a backend built from scratch in Rust. We're proud of this one.\n- A lot of other fixes are running in parallel right now.\n\nStarting next Friday, I will be posting weekly engineering updates.\n\nI joined because I genuinely believe in what @Polymarket is trying to do. @shayne_coplan built this so the world has somewhere to go to find out what's actually going to happen, not what the media thinks, not what a pundit says, but what thousands of people are willing to put money on. But right now, our engineering isn't living up to that. We've let people down, and I'm not going to dress that up. I came here to fix it, and that's exactly what we're going to do. The next few months are going to speak for themselves. Stay with us.",
-    "created_at": "Fri Apr 24 19:17:46 +0000 2026",
     "handle": "devjoshstevens",
     "source": "unofficial_x"
   }
