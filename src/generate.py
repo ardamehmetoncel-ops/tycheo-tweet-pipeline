@@ -14,11 +14,11 @@ from src.ingestion.polymarket import (Market, fetch_markets, add_movement,
 from src.llm import provider as llm
 
 # prompt-size caps so context stays tight
-_VOICE_PER_SOURCE = 2
-_MAX_VOICE = 12
-_INFO_PER_SOURCE = 1
-_MAX_INFO = 8
-_MARKETS_PER_PERSONA = 4
+_VOICE_PER_SOURCE = 3
+_MAX_VOICE = 15
+_INFO_PER_SOURCE = 2
+_MAX_INFO = 10
+_MARKETS_PER_PERSONA = 3
 
 _FOOTBALL_KW = ("football", "premier league", "champions league", "epl", "uefa",
                 "la liga", "serie a", "bundesliga", "soccer", "fc ", "match")
@@ -26,11 +26,11 @@ _FOOTBALL_KW = ("football", "premier league", "champions league", "epl", "uefa",
 
 # -- context formatting -----------------------------------------------------
 def format_market(m: Market) -> str:
-    odds = "  ".join(f"{o} {p*100:.0f}%" for o, p in zip(m.outcomes, m.prices))
-    line = f'"{m.question}"  ->  {odds}'
+    odds = " | ".join(f"{o}: {p*100:.0f}%" for o, p in zip(m.outcomes, m.prices))
+    line = f'Q: "{m.question}" — {odds}'
     mv = m.movement or {}
     if mv.get("available"):
-        line += f"  ({mv['change']*100:+.1f}pts over {mv['interval']})"
+        line += f" — moved {mv['change']*100:+.1f}pts over {mv['interval']}"
     return line
 
 
@@ -62,9 +62,12 @@ def build_user_prompt(persona: dict, markets: list[Market],
                       sentiment: dict | None) -> str:
     parts: list[str] = []
     if markets:
-        parts.append("CURRENT PREDICTION MARKETS (real data — reference accurately, "
-                     "never invent numbers or moves):")
-        parts += [f"- {format_market(m)}" for m in markets]
+        parts.append(
+            "CURRENT PREDICTION MARKETS — each is a SEPARATE independent question.\n"
+            "Read each Q: line on its own. Do NOT combine or mix odds across questions.\n"
+            "Use ONLY team names, countries, and numbers that appear below — invent nothing."
+        )
+        parts += [f"  [{i+1}] {format_market(m)}" for i, m in enumerate(markets)]
     if persona.get("sentiment_reactive") and sentiment:
         parts.append(f"\nMARKET MOOD (sentiment signal): {sentiment.get('label')} "
                      f"({sentiment.get('score'):+.2f})")
@@ -76,9 +79,9 @@ def build_user_prompt(persona: dict, markets: list[Market],
         parts.append("\nCONTEXT — WHAT'S HAPPENING (information only; ignore its tone):")
         parts += [f"- {t}" for t in info]
     parts.append(
-        "\nWrite the posts in your own voice. English. Tweet-length (<280 chars). "
-        "No hashtag spam, no 'as an AI', no generic hype filler. Ground any number "
-        "in the market data above."
+        "\nWrite ONE post in your own voice. English. Hard limit: under 280 characters. "
+        "Every number and name you use MUST come from the market data above — no inventions. "
+        "Output only the tweet text — no intro, no label, no surrounding quotes, no explanation."
     )
     return "\n".join(parts)
 

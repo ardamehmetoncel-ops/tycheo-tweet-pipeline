@@ -183,10 +183,15 @@ def fetch_for_handles(cfg: dict,
         if delay and i > 0:
             time.sleep(delay)
         try:
-            out[_norm(h)] = src.fetch(h, limit)
+            tweets = src.fetch(h, limit)
+            out[_norm(h)] = tweets
+            if tweets:
+                print(f"[fetch] {h}: fetched {len(tweets)} tweets")
+            else:
+                print(f"[fetch] {h}: no tweets returned")
         except Exception as e:        # one bad handle shouldn't kill the whole batch
             out[_norm(h)] = []
-            print(f"[tweets] {h}: {e}")
+            print(f"[fetch] {h}: failed — {e}")
     return out
 
 

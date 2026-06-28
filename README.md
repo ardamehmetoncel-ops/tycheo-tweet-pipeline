@@ -351,6 +351,35 @@ rm data/cache/source_classifications.json
 python -m src.classify.classifier
 ```
 
+**Fresh fetch — wipe all tweet caches and re-fetch everything:**
+
+Tweet caches expire after `cache_ttl_hours` (default 12h) automatically, but
+if you want to force a fresh pull for all handles immediately:
+
+```bash
+# delete all cached tweet files
+rm data/cache/tweets/*.json
+
+# re-fetch everything from scratch
+python -m src.ingestion.fetch_handles
+```
+
+To wipe and re-fetch only a single handle:
+
+```bash
+rm data/cache/tweets/somehandle.json
+python -m src.ingestion.fetch_handles
+```
+
+After a fresh fetch, re-run the classifier only if you want the tier/tags
+recalculated from the new tweets — otherwise the existing classifications are
+reused as-is:
+
+```bash
+rm data/cache/source_classifications.json   # optional
+python -m src.classify.classifier
+```
+
 ---
 
 ### Step 8 — Start the app

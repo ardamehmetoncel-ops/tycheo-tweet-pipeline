@@ -19,6 +19,7 @@ from src.generate import run_batch
 
 app = Flask(__name__)
 _LAST_BATCH = CACHE_DIR / "last_batch.json"
+_BATCHES_DIR = CACHE_DIR / "batches"
 _TIER_ORDER = {"serious": 0, "middle": 1, "degen": 2}
 
 
@@ -69,7 +70,11 @@ def run():
     except Exception as e:
         return jsonify({"error": f"{type(e).__name__}: {e}"}), 500
     ran_at = dt.datetime.now().strftime("%Y-%m-%d %H:%M")
-    cache.save(_LAST_BATCH, {"ran_at": ran_at, "batch": batch})
+    payload = {"ran_at": ran_at, "batch": batch}
+    cache.save(_LAST_BATCH, payload)
+    _BATCHES_DIR.mkdir(parents=True, exist_ok=True)
+    timestamp = dt.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    cache.save(_BATCHES_DIR / f"{timestamp}.json", payload)
     return jsonify({"ran_at": ran_at})
 
 

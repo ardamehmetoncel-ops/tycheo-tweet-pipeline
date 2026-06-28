@@ -88,25 +88,55 @@ def get_provider(cfg: dict):
 
 
 # -- N-candidate generation (works with any provider) -----------------------
+_PREAMBLES = (
+    "here are", "here is", "tweet:", "post:", "draft:", "sure,",
+    "certainly,", "of course,", "in the style", "example tweet",
+    "candidate tweet", "based on", "i'll write", "i will write",
+)
+
+
+def _clean(text: str) -> str:
+    """Strip model preamble and extract the actual tweet text."""
+    text = text.strip()
+    # strip surrounding quotes
+    if len(text) >= 2 and text[0] == text[-1] and text[0] in ('"', "'"):
+        text = text[1:-1].strip()
+    # if preamble detected, try to pull out first quoted passage or skip first line
+    if any(text.lower().startswith(p) for p in _PREAMBLES):
+        m = re.search(r'"([^"]{15,})"', text)
+        if m:
+            return m.group(1).strip()
+        lines = [ln.strip() for ln in text.split('\n') if ln.strip()]
+        if len(lines) > 1:
+            return lines[1].strip().strip('"\'')
+    return text
+
+
 def generate(provider, system: str, user: str, n: int, *,
              max_tokens: int = 400, temperature: float = 0.9) -> list[str]:
-    """Ask for n distinct posts in one call; fall back to n separate completions."""
+    """Generate n candidate posts. For n=1 skips JSON (smaller models handle direct better)."""
+    if n == 1:
+        raw = provider.complete(system, user, max_tokens=max_tokens,
+                                temperature=temperature)
+        return [_clean(raw)]
+
+    # for n>1 try JSON first, fall back to individual calls
     instruction = (
         f"{user}\n\nProduce exactly {n} DISTINCT candidate posts. "
-        f'Return STRICT JSON only, no prose: {{"posts": ["...", "..."]}}'
+        f'Return STRICT JSON only — no prose, no markdown: {{"posts": ["tweet 1", "tweet 2"]}}'
     )
     raw = provider.complete(system, instruction,
                             max_tokens=max_tokens, temperature=temperature)
     try:
         posts = parse_json_object(raw).get("posts", [])
-        posts = [p.strip() for p in posts if isinstance(p, str) and p.strip()]
-        if posts:
+        posts = [_clean(p) for p in posts if isinstance(p, str) and p.strip()]
+        if len(posts) >= n:
             return posts[:n]
     except Exception:
         pass
     # fallback: independent single completions
-    return [provider.complete(system, user, max_tokens=max_tokens,
-                              temperature=temperature).strip() for _ in range(n)]
+    return [_clean(provider.complete(system, user, max_tokens=max_tokens,
+                                     temperature=temperature)) for _ in range(n)]
 
 
 # -- shared helper ----------------------------------------------------------
