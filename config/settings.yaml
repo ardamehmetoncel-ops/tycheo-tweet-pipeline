@@ -3,9 +3,9 @@
 # ──────────────────────────────────────────────────────────────────────────
 
 llm:
-  provider: ollama             # anthropic | openai | ollama  (single change swaps it)
-  model: llama3.1:8b      # configurable; sonnet is a good cost/quality default
-  candidates_per_run: 1        # N candidate posts per persona per run
+  provider: xai                # xai | anthropic | openai | ollama  (single change swaps it)
+  model: grok-3-fast           # configurable; see SWITCHING_LLM_PROVIDER.md for model list
+  candidates_per_run: 3        # N candidate posts per persona per run (2–4)
   output_language: english     # all generated posts are English
 
 tweet_source:
@@ -26,8 +26,7 @@ classifier:
   topic_tags: [quant, macro, football, news, general, crypto, politics]
 
 finbert:
-  enabled: true                                  # global on/off for the sentiment layer
-  default_on_personas: [news_reactor, contrarian, hype_man]
+  enabled: false
 
 polymarket:
   base_url: https://gamma-api.polymarket.com     # Gamma: current odds/metadata

@@ -1,5 +1,18 @@
+# macOS
+.DS_Store
+
+# Secrets
 .env
+*.env
+
+# Python
 __pycache__/
 *.pyc
+*.pyo
+
+# Virtual environment
 .venv/
-data/cache/tweets/.gitkeep
+venv/
+
+# Auto-generated cache (already committed once as example; future runs won't auto-stage)
+data/cache/

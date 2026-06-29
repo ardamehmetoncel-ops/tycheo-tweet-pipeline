@@ -3,5 +3,5 @@ python-dotenv>=1.0
 requests>=2.31
 anthropic>=0.40
 flask>=3.0
-# openai>=1.0          # uncomment if using the openai provider
+openai>=1.0            # required for xai provider; also used by openai provider
 # FinBERT (module 7) is heavy — installed separately, see requirements-finbert.txt

@@ -37,6 +37,7 @@ def _personas_view(cfg: dict) -> list[dict]:
             "id": p["id"], "name": p["name"], "handle": p.get("handle", ""),
             "tags": p.get("tags", []), "tier": _tier(p),
             "reactive": bool(p.get("sentiment_reactive")),
+            "voice_only": bool(p.get("ignore_markets")),
         })
     view.sort(key=lambda p: (_TIER_ORDER.get(p["tier"], 1), p["name"]))
     return view
@@ -55,20 +56,29 @@ def _load_last() -> dict:
 def index():
     cfg = load_config()
     last = _load_last()
+    n_default = min(4, max(1, cfg["settings"].get("llm", {}).get("candidates_per_run", 3)))
     return render_template("index.html",
                            personas=_personas_view(cfg),
                            batch=last.get("batch", {}),
                            ran_at=last.get("ran_at"),
-                           provider=cfg["settings"].get("llm", {}).get("provider"))
+                           provider=cfg["settings"].get("llm", {}).get("provider"),
+                           n_default=n_default)
 
 
 @app.route("/run", methods=["POST"])
 def run():
+    data = request.get_json(force=True) or {}
+    counts = {k: max(0, min(4, int(v))) for k, v in data.get("counts", {}).items()}
     cfg = load_config()
+    prev_batch = _load_last().get("batch", {})
     try:
-        batch = run_batch(cfg)
+        batch = run_batch(cfg, persona_counts=counts if counts else None)
     except Exception as e:
         return jsonify({"error": f"{type(e).__name__}: {e}"}), 500
+    # preserve previous drafts for personas skipped this run
+    for pid, n in counts.items():
+        if n == 0 and pid in prev_batch:
+            batch[pid] = prev_batch[pid]
     ran_at = dt.datetime.now().strftime("%Y-%m-%d %H:%M")
     payload = {"ran_at": ran_at, "batch": batch}
     cache.save(_LAST_BATCH, payload)

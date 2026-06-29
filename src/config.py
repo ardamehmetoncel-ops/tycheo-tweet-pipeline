@@ -34,6 +34,7 @@ def load_config() -> dict:
         "secrets": {
             "anthropic": os.getenv("ANTHROPIC_API_KEY"),
             "openai": os.getenv("OPENAI_API_KEY"),
+            "xai": os.getenv("XAI_API_KEY"),
             "x_bearer": os.getenv("X_BEARER_TOKEN"),
             "ollama_host": os.getenv("OLLAMA_HOST", "http://localhost:11434"),
             "twitterapi_io": os.getenv("TWITTERAPI_IO_KEY"),
