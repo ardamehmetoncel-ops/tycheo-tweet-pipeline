@@ -85,7 +85,7 @@ def run():
     _BATCHES_DIR.mkdir(parents=True, exist_ok=True)
     timestamp = dt.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     cache.save(_BATCHES_DIR / f"{timestamp}.json", payload)
-    return jsonify({"ran_at": ran_at})
+    return jsonify({"ran_at": ran_at, "batch": batch})
 
 
 @app.route("/handle", methods=["POST"])

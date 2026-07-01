@@ -34,3 +34,4 @@ polymarket:
   markets_limit: 50
   movement_interval: 1d                          # max|all|1m|1w|1d|6h|1h
   movement_fidelity: 60                          # minutes per data point
+  cache_ttl_hours: 6                             # market list cache lifetime (independent of tweet TTL)

@@ -144,7 +144,7 @@ class CachedSource:
     def fetch(self, handle: str, limit: int) -> list[dict]:
         path = _TWEET_CACHE_DIR / f"{_norm(handle)}.json"
         cached = cache.load_if_fresh(path, self.ttl)
-        if cached is not None and len(cached) >= limit:
+        if cached is not None:
             return cached[:limit]
         fresh = self.inner.fetch(handle, limit)
         cache.save(path, fresh)

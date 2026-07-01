@@ -93,8 +93,9 @@ def get_classifications(cfg: dict, *, force: bool = False,
         ts = cfg["settings"].get("tweet_source", {})
         ttl = ts.get("cache_ttl_hours", 24) * 3600
 
-        ready = [h for h in todo if _load_tweet_cache(h, ttl)]
-        missing = [h for h in todo if not _load_tweet_cache(h, ttl)]
+        tweet_cache = {h: _load_tweet_cache(h, ttl) for h in todo}
+        ready = [h for h, texts in tweet_cache.items() if texts]
+        missing = [h for h, texts in tweet_cache.items() if not texts]
 
         if missing:
             print(f"[classifier] no tweet cache for: {', '.join(missing)}")
@@ -104,7 +105,7 @@ def get_classifications(cfg: dict, *, force: bool = False,
             provider = llm.get_provider(cfg)
             now = dt.datetime.now(dt.timezone.utc).isoformat()
             for h in ready:
-                texts = _load_tweet_cache(h, ttl)
+                texts = tweet_cache[h]
                 result = classify_handle(h, texts, provider, cfg)
                 result["classified_at"] = now
                 existing[h] = result

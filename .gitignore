@@ -14,5 +14,10 @@ __pycache__/
 .venv/
 venv/
 
-# Auto-generated cache (already committed once as example; future runs won't auto-stage)
+# Auto-generated cache
 data/cache/
+
+# Internal / Claude-specific files
+CLAUDE.md
+HANDOFF.md
+FINBERT_SETUP.md

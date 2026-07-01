@@ -282,6 +282,16 @@ input[type="range"].gen-slider::-moz-range-thumb {
   border-color: color-mix(in srgb, var(--serious) 40%, transparent);
 }
 
+.regen-btn {
+  font-family: var(--mono); font-size: 10px; font-weight: 600;
+  letter-spacing: .04em; color: var(--muted); background: transparent;
+  border: 1px solid var(--border); border-radius: 5px;
+  padding: 4px 9px; cursor: pointer; margin-top: 8px; align-self: flex-end;
+  transition: color .12s, border-color .12s;
+}
+.regen-btn:hover { color: var(--tier); border-color: var(--tier); }
+.regen-btn:disabled { opacity: .4; cursor: wait; }
+
 .no-drafts {
   font-family: var(--mono); font-size: 11px; color: var(--faint);
   padding: 14px 6px; text-align: center;
@@ -397,6 +407,12 @@ input[type="range"].gen-slider::-moz-range-thumb {
         </div>
       </div>
 
+      <!-- Regen -->
+      <div style="padding: 0 16px 12px; display:flex; justify-content:flex-end;">
+        <button class="regen-btn" id="regen-{{ p.id }}"
+                onclick="regenPersona('{{ p.id }}')">↺ regen</button>
+      </div>
+
       <!-- Divider -->
       <div class="card-divider"></div>
 
@@ -506,6 +522,54 @@ async function runEngine() {
     btn.disabled = false;
     btn.innerHTML = prevHTML;
     _syncCount();
+  }
+}
+
+function _renderDrafts(pid, posts) {
+  const section = document.querySelector(`#card-${pid} .drafts-section`);
+  if (!section) return;
+  if (!posts || posts.length === 0) {
+    section.innerHTML = '<div class="no-drafts">— no output —</div>';
+    return;
+  }
+  section.innerHTML = posts.map(post => `
+    <div class="draft-card">
+      <div class="draft-text">${post.replace(/</g,'&lt;').replace(/>/g,'&gt;')}</div>
+      <div class="draft-foot">
+        <span class="char-count${post.length > 280 ? ' over' : ''}">${post.length}/280</span>
+        <button class="copy-btn" onclick="copyPost(this)">Copy</button>
+      </div>
+    </div>`).join('');
+
+  // update last-run example block if present
+  const example = document.querySelector(`#card-${pid} .example-text`);
+  if (example) example.textContent = posts[0];
+}
+
+async function regenPersona(pid) {
+  const slider = document.querySelector(`.gen-slider[data-pid="${pid}"]`);
+  const n = slider ? parseInt(slider.value) : 1;
+  if (n === 0) { toast('Slider is at 0 — move it up first'); return; }
+
+  const btn = document.getElementById(`regen-${pid}`);
+  btn.disabled = true;
+  btn.textContent = '…';
+
+  try {
+    const r = await fetch('/run', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ counts: { [pid]: n } })
+    });
+    const data = await r.json();
+    if (!r.ok) throw new Error(data.error || 'regen failed');
+    _renderDrafts(pid, data.batch[pid] || []);
+    toast('Regenerated');
+  } catch(e) {
+    toast('Error: ' + e.message);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = '↺ regen';
   }
 }
 

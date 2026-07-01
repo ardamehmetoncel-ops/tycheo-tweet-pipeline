@@ -112,7 +112,7 @@ def fetch_markets(cfg: dict, *, limit: int | None = None,
     settings = cfg["settings"].get("polymarket", {})
     base = settings.get("base_url", GAMMA_BASE)
     limit = limit or settings.get("markets_limit", 50)
-    ttl = cfg["settings"].get("tweet_source", {}).get("cache_ttl_hours", 24) * 3600
+    ttl = cfg["settings"].get("polymarket", {}).get("cache_ttl_hours", 6) * 3600
 
     if use_cache and _fresh(_MARKETS_CACHE, ttl):
         raw_list = json.loads(_MARKETS_CACHE.read_text())
